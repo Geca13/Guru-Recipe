@@ -45,7 +45,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     }
 
     private List<Recipe> getRecipes() {
-    	/*
+    	
     	unitOfMeasureRepository.save(new UnitOfMeasure("Each"));
     	unitOfMeasureRepository.save(new UnitOfMeasure("Tablespoon"));
     	unitOfMeasureRepository.save(new UnitOfMeasure("Teaspoon"));
@@ -57,7 +57,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     	categoryRepository.save(new Category("Mexican"));
     	categoryRepository.save(new Category("Italian"));
     	categoryRepository.save(new Category("Fast Food"));
-    	*/
+    	
 
     	List<Recipe> recipes = new ArrayList<>(2);
 

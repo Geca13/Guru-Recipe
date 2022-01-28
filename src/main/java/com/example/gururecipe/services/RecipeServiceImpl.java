@@ -1,6 +1,7 @@
 package com.example.gururecipe.services;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -28,6 +29,16 @@ public class RecipeServiceImpl implements RecipeService {
 		recipeRepository.findAll().iterator().forEachRemaining(recepeSet:: add);
 		
 		return recepeSet;
+	}
+
+	
+
+	@Override
+	public Recipe findById(Long id) {
+		
+		Optional<Recipe> optional = recipeRepository.findById(id);
+		
+		return optional.get();
 	}
 	
 	
