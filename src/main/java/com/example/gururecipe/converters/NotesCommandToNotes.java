@@ -1,0 +1,22 @@
+package com.example.gururecipe.converters;
+
+import com.example.gururecipe.command.NotesCommand;
+import com.example.gururecipe.domain.Notes;
+import lombok.Synchronized;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.lang.Nullable;
+
+public class NotesCommandToNotes implements Converter<NotesCommand, Notes> {
+    @Synchronized
+    @Nullable
+    @Override
+    public Notes convert(NotesCommand source) {
+        if(source == null) {
+            return null;
+        }
+        Notes notes = new Notes();
+        notes.setId(source.getId());
+        notes.setRecipeNotes(source.getRecipeNotes());
+        return notes;
+    }
+}
