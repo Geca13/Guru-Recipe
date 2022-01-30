@@ -1,4 +1,4 @@
-package com.example.gururecipe;
+package com.example.gururecipe.service;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -11,6 +11,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.example.gururecipe.converters.RecipeCommandToRecipe;
+import com.example.gururecipe.converters.RecipeToRecipeCommand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -20,6 +22,9 @@ import static org.mockito.ArgumentMatchers.*;
 import com.example.gururecipe.domain.Recipe;
 import com.example.gururecipe.repositories.RecipeRepository;
 import com.example.gururecipe.services.RecipeServiceImpl;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+
+
 
 public class RecipeServiceImplTest {
 	
@@ -27,11 +32,17 @@ public class RecipeServiceImplTest {
 	
 	@Mock
 	RecipeRepository recipeRepository;
+
+	@Mock
+	RecipeToRecipeCommand recipeToRecipeCommand;
+
+	@Mock
+	RecipeCommandToRecipe recipeCommandToRecipe;
 	
 	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		recipeService = new RecipeServiceImpl(recipeRepository);
+		recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
 	}
 	
 	@Test

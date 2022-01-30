@@ -1,4 +1,4 @@
-package com.example.gururecipe;
+package com.example.gururecipe.domain;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

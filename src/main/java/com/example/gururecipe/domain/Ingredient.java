@@ -28,25 +28,21 @@ public class Ingredient {
 	private String description;
 	
 	private BigDecimal amount;
-	
-	@OneToOne(fetch = FetchType.EAGER)
-	private UnitOfMeasure uom;
+
 	
 	@ManyToOne
 	private Recipe recipe;
 	
-	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+	public Ingredient(String description, BigDecimal amount, Recipe recipe) {
 		super();
 		this.description = description;
 		this.amount = amount;
-		this.uom = uom;
 		this.recipe = recipe;
 	}
 
-	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+	public Ingredient(String description, BigDecimal amount) {
         this.description = description;
         this.amount = amount;
-        this.uom = uom;
         
     }
 

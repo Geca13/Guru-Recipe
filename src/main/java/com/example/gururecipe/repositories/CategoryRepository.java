@@ -8,5 +8,5 @@ import com.example.gururecipe.domain.Category;
 
 public interface CategoryRepository extends CrudRepository<Category, Long>  {
 
-	Optional<Category> findByDescription(String description);
+	Category findByDescription(String description);
 }
